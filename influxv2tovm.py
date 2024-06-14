@@ -66,8 +66,8 @@ class InfluxMigrator:
         self.bucket = bucket
         self.vm_url: str = vm_url
         self.chunksize = chunksize
-        now_datetime_str = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-        self.__progress_file = open(f".migrator_{now_datetime_str}", 'w')
+        # now_datetime_str = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+        # self.__progress_file = open(f".migrator_{now_datetime_str}", 'w')
         self.stats = Stats()
         self.dry_run = dry_run
         self.pivot = pivot
