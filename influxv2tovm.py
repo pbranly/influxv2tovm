@@ -73,9 +73,10 @@ class InfluxMigrator:
         self.pivot = pivot
         if pivot:
             self.__measurement_key = "entity_id"
+        else:
+            self.__measurement_key = "_measurement"
 
     def __del__(self):
-        self.__progress_file.close()
         self.__client.close()
 
     def influx_connect(self):
