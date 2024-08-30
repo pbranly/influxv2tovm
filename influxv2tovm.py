@@ -259,8 +259,9 @@ class InfluxMigrator:
 def main(args: Dict[str, str]):
     logger.info("args: " + str(args.keys()))
     bucket = args.pop("bucket")
-    vm_url = args.pop("VM_ADDR") if args.pop(
-        "VM_ADDR") is not None else os.environ['VM_ADDR']
+    vm_url = args.pop("VM_ADDR")
+    if vm_url is None:
+        vm_url = os.environ['VM_ADDR']
     dry_run = bool(args.pop("dry_run"))
     pivot = bool(args.pop("pivot"))
 
@@ -325,7 +326,7 @@ if __name__ == "__main__":
         "--INFLUXDB_V2_VERIFY_SSL",
         "-V",
         type=str,
-        help="Verify SSL CERT.",
+        help="Verify SSL CERT",
     )
     parser.add_argument(
         "--VM_ADDR",
