@@ -19,7 +19,14 @@ This project uses the legacy Influx [Line Protocol API](https://archive.docs.inf
 ## Usage
 ~~~~
 
-./import.py xxxxxxx   --INFLUXDB_V2_ORG=xxxxxxxx   --INFLUXDB_V2_URL=http://192.168.0.10:8086   --INFLUXDB_V2_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxx   --VM_ADDR=http://192.168.0.10:8428   --start=xxxx-MM-DD   --end=XXXX-MM-DD --pivot
+./influxv2tovm.py -h
+usage: influxv2tovm.py [-h] [--INFLUXDB_V2_ORG INFLUXDB_V2_ORG] [--INFLUXDB_V2_URL INFLUXDB_V2_URL] [--INFLUXDB_V2_TOKEN INFLUXDB_V2_TOKEN]
+                        [--INFLUXDB_V2_SSL_CA_CERT INFLUXDB_V2_SSL_CA_CERT] [--INFLUXDB_V2_VERIFY_SSL INFLUXDB_V2_VERIFY_SSL] [--VM_ADDR VM_ADDR] [--start xxxx-MM-DD] [--end xxxx-MM-DD]
+                        [--dry-run]
+                        [--pivot]
+                        bucket
+
+./influxv2tovm.py xxxxxxx   --INFLUXDB_V2_ORG=xxxxxxxx   --INFLUXDB_V2_URL=http://192.168.0.10:8086   --INFLUXDB_V2_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxx   --VM_ADDR=http://192.168.0.10:8428   --start=xxxx-MM-DD   --end=XXXX-MM-DD --pivot
 
 Script for exporting InfluxDB data into victoria metrics instance. InfluxDB settings can be defined on command line
 or as environment variables (or in .env file  if python-dotenv is installed).
@@ -45,6 +52,8 @@ optional arguments:
                         Verify SSL CERT.
   --VM_ADDR VM_ADDR, -a VM_ADDR
                         VictoriaMetrics server
+  --start, xxxx-MM-DD   Start date for importation
+  --end, xxxx-MM-DD     End date for importation
   --dry-run, -n         Dry run, don't write changes to VM
   --pivot, -P           Pivot entity_id to be measurement, this is specific to Home Assistant metrics
 ~~~~
