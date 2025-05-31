@@ -18,13 +18,8 @@ This project uses the legacy Influx [Line Protocol API](https://archive.docs.inf
 
 ## Usage
 ~~~~
-./influx_export.py -h
-usage: influxv2tovm.py [-h] [--INFLUXDB_V2_ORG INFLUXDB_V2_ORG] [--INFLUXDB_V2_URL INFLUXDB_V2_URL] [--INFLUXDB_V2_TOKEN INFLUXDB_V2_TOKEN]
-                        [--INFLUXDB_V2_SSL_CA_CERT INFLUXDB_V2_SSL_CA_CERT] [--INFLUXDB_V2_TIMEOUT INFLUXDB_V2_TIMEOUT]
-                        [--INFLUXDB_V2_VERIFY_SSL INFLUXDB_V2_VERIFY_SSL] [--VM_ADDR VM_ADDR]
-                        [--dry-run]
-                        [--pivot]
-                        bucket
+
+./import.py xxxxxxx   --INFLUXDB_V2_ORG=xxxxxxxx   --INFLUXDB_V2_URL=http://192.168.0.10:8086   --INFLUXDB_V2_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxx   --VM_ADDR=http://192.168.0.10:8428   --start=xxxx-MM-DD   --end=XXXX-MM-DD --pivot
 
 Script for exporting InfluxDB data into victoria metrics instance. InfluxDB settings can be defined on command line
 or as environment variables (or in .env file  if python-dotenv is installed).
